@@ -3,7 +3,7 @@ RUN apk --update add git libc-dev gcc g++ libstdc++ libgcc libsass-dev && \
     rm -rf /var/lib/apt/lists/* && \
     rm /var/cache/apk/*
 
-ARG HUGO_VERSION=0.120.3
+ARG HUGO_VERSION=0.112.0
 
 RUN mkdir $HOME/src \
     && cd $HOME/src \
