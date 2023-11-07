@@ -1,9 +1,9 @@
-FROM golang:alpine3.15
+FROM golang:alpine3.18
 RUN apk --update add git libc-dev gcc g++ libstdc++ libgcc libsass-dev && \
     rm -rf /var/lib/apt/lists/* && \
     rm /var/cache/apk/*
 
-ARG HUGO_VERSION=0.107.0
+ARG HUGO_VERSION=0.120.3
 
 RUN mkdir $HOME/src \
     && cd $HOME/src \
@@ -11,7 +11,7 @@ RUN mkdir $HOME/src \
     && cd hugo \
     && CGO_ENABLED=1 GOOS=linux go install -a -ldflags "-linkmode external -extldflags -static" --tags extended
 
-FROM alpine:3.15
+FROM alpine:3.18
 
 LABEL maintainer="philipp@haussleiter.de <philipp@haussleiter.de>"
 
